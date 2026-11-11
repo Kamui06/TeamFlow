@@ -1,0 +1,11 @@
+.user-link {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.user-link:hover {
+  color: #1976d2;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

@@ -1,0 +1,279 @@
+.ctm-backdrop,
+.ctm-backdrop *,
+.ctm-backdrop *::before,
+.ctm-backdrop *::after {
+  box-sizing: border-box;
+}
+
+.ctm-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(16, 24, 40, 0.55);
+  overflow-y: auto;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ffffff;
+  animation: ctm-fade 0.15s ease-out;
+}
+
+.ctm-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: min(580px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  margin: auto;
+  padding: 26px 28px 24px;
+  background: #ffffff;
+  color: #101828;
+  border-radius: 16px;
+  box-shadow: 0 24px 48px rgba(16, 24, 40, 0.25);
+  animation: ctm-rise 0.2s ease-out;
+}
+
+.ctm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ctm-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #101828;
+}
+
+.ctm-close {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #667085;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.ctm-close:hover:not(:disabled) {
+  background: #f2f4f7;
+  color: #101828;
+}
+
+.ctm-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.ctm-row-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ctm-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: #344054;
+}
+
+.ctm-field input,
+.ctm-field select,
+.ctm-field textarea {
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  background: #ffffff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  color: #101828;
+}
+
+.ctm-field textarea {
+  min-height: 84px;
+  resize: vertical;
+}
+
+.ctm-field input:focus,
+.ctm-field select:focus,
+.ctm-field textarea:focus {
+  outline: none;
+  border-color: #1976d2;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.15);
+}
+
+.ctm-field select:disabled,
+.ctm-field input:disabled,
+.ctm-field textarea:disabled {
+  background: #f9fafb;
+  color: #667085;
+  cursor: not-allowed;
+}
+
+/* Assignees */
+
+.ctm-assignees {
+  margin: 0;
+  padding: 0;
+  border: none;
+  min-width: 0;
+}
+
+.ctm-assignees legend {
+  padding: 0;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #344054;
+}
+
+.ctm-assignees:disabled {
+  opacity: 0.7;
+}
+
+.ctm-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 180px;
+  overflow-y: auto;
+  padding: 6px;
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+.ctm-check {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 7px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #101828;
+  cursor: pointer;
+}
+
+.ctm-check:hover {
+  background: #f9fafb;
+}
+
+.ctm-check input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  accent-color: #1976d2;
+  cursor: pointer;
+}
+
+.ctm-hint {
+  margin: 0;
+  font-size: 12px;
+  color: #667085;
+}
+
+.ctm-error {
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid #fecdca;
+  border-radius: 8px;
+  background: #fef3f2;
+  font-size: 13px;
+  color: #b42318;
+}
+
+/* Footer */
+
+.ctm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid #eef0f3;
+}
+
+.ctm-btn {
+  height: 38px;
+  padding: 0 18px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.ctm-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.ctm-btn-primary {
+  background: #1976d2;
+  color: #ffffff;
+}
+
+.ctm-btn-primary:hover:not(:disabled) {
+  background: #1565c0;
+}
+
+.ctm-btn-secondary {
+  background: #ffffff;
+  border-color: #d0d5dd;
+  color: #344054;
+}
+
+.ctm-btn-secondary:hover:not(:disabled) {
+  background: #f9fafb;
+}
+
+@keyframes ctm-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes ctm-rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .ctm-row,
+  .ctm-row-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .ctm-panel {
+    padding: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ctm-backdrop,
+  .ctm-panel,
+  .ctm-btn {
+    animation: none;
+    transition: none;
+  }
+}

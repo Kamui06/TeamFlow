@@ -1,0 +1,319 @@
+.admin-page {
+  --a-surface: #ffffff;
+  --a-border: #e4e7ec;
+  --a-border-soft: #f0f2f5;
+  --a-text: #101828;
+  --a-text-2: #475467;
+  --a-text-3: #667085;
+  --a-primary: #1976d2;
+  --a-primary-hover: #1565c0;
+  --a-danger: #d92d20;
+  --a-danger-hover: #b42318;
+  --a-radius: 12px;
+  --a-shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 1px 3px rgba(16, 24, 40, 0.06);
+
+  width: 100%;
+  min-height: 100vh;
+  padding: 28px clamp(16px, 2.4vw, 40px) 56px;
+  color: var(--a-text);
+  font-size: 14px;
+}
+
+/* ---------- Header ---------- */
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 22px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--a-border);
+}
+
+.admin-header h1 {
+  margin: 4px 0 0;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--a-text);
+}
+
+.admin-eyebrow {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--a-text-3);
+}
+
+/* ---------- Tabs ---------- */
+
+.admin-tabs {
+  display: inline-flex;
+  gap: 2px;
+  padding: 4px;
+  margin-bottom: 20px;
+  background: #eef1f5;
+  border-radius: 10px;
+}
+
+.admin-tab {
+  height: 34px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  font-weight: 500;
+  color: var(--a-text-2);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.admin-tab:hover {
+  color: var(--a-text);
+}
+
+.admin-tab.active {
+  background: var(--a-surface);
+  color: var(--a-primary);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08);
+}
+
+/* ---------- Buttons ---------- */
+
+.admin-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 16px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: var(--a-primary);
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.admin-btn:hover:not(:disabled) {
+  background: var(--a-primary-hover);
+}
+
+.admin-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.25);
+}
+
+.admin-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.admin-btn-secondary {
+  background: var(--a-surface);
+  border-color: #d0d5dd;
+  color: var(--a-text);
+}
+
+.admin-btn-secondary:hover:not(:disabled) {
+  background: #f9fafb;
+}
+
+.admin-btn-danger {
+  background: var(--a-danger);
+}
+
+.admin-btn-danger:hover:not(:disabled) {
+  background: var(--a-danger-hover);
+}
+
+.admin-btn-small {
+  height: 30px;
+  padding: 0 12px;
+  font-size: 12px;
+}
+
+/* ---------- Search ---------- */
+
+.admin-search {
+  width: 100%;
+  max-width: 420px;
+  height: 40px;
+  margin-bottom: 16px;
+  padding: 0 14px;
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+  background: var(--a-surface);
+  color: var(--a-text);
+}
+
+.admin-search:focus {
+  outline: none;
+  border-color: var(--a-primary);
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.15);
+}
+
+/* ---------- Notices and states ---------- */
+
+.admin-notice,
+.admin-alert {
+  display: block;
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+
+.admin-notice {
+  background: #ecfdf3;
+  border-color: #abefc6;
+  color: #067647;
+}
+
+.admin-alert {
+  background: #fef3f2;
+  border-color: #fecdca;
+  color: #b42318;
+}
+
+.admin-state {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--a-text-3);
+}
+
+/* ---------- Tables ---------- */
+
+.admin-table {
+  width: 100%;
+  background: var(--a-surface);
+  border: 1px solid var(--a-border);
+  border-radius: var(--a-radius);
+  box-shadow: var(--a-shadow);
+  overflow-x: auto;
+}
+
+.admin-row {
+  display: grid;
+  align-items: center;
+  column-gap: 16px;
+  min-height: 60px;
+  padding: 0 20px;
+  border-top: 1px solid var(--a-border-soft);
+  text-align: left;
+  transition: background-color 0.12s ease;
+}
+
+.admin-row:first-child {
+  border-top: none;
+}
+
+.admin-row:not(.admin-row-head):hover {
+  background: #fafbfc;
+}
+
+.admin-row-head {
+  min-height: 44px;
+  background: #f9fafb;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--a-text-3);
+}
+
+.admin-row > span {
+  min-width: 0;
+  padding: 14px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-row-head > span {
+  padding: 12px 0;
+}
+
+/* Column layouts. The minimum widths keep columns readable, and the table scrolls sideways when the window is narrow. */
+.admin-row.users {
+  grid-template-columns: minmax(130px, 1.1fr) minmax(200px, 1.6fr) minmax(130px, 1.1fr) 100px 100px 110px max-content;
+  min-width: 1080px;
+}
+
+.admin-row.projects {
+  grid-template-columns: minmax(180px, 2fr) minmax(130px, 1.4fr) 110px 96px 80px minmax(130px, 1.2fr) max-content;
+  min-width: 1000px;
+}
+
+/* Actions never get clipped: buttons stay on one line and the cell does not hide overflow. */
+.admin-row > .admin-actions {
+  overflow: visible;
+  white-space: normal;
+}
+
+.admin-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.admin-actions > * {
+  flex-shrink: 0;
+}
+
+/* Links inside a row get table link styling, but not buttons that happen to be links. */
+.admin-row a:not(.admin-btn) {
+  color: var(--a-text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.admin-row a:not(.admin-btn):hover {
+  color: var(--a-primary);
+  text-decoration: underline;
+}
+
+.admin-strong {
+  font-weight: 600;
+  color: var(--a-text);
+}
+
+/* ---------- Badges ---------- */
+
+.admin-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #f2f4f7;
+  color: var(--a-text-2);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.badge-admin {
+  background: #f1edff;
+  color: #6938ef;
+}
+
+.badge-ok {
+  background: #ecfdf3;
+  color: #067647;
+}
+
+.badge-off {
+  background: #fef3f2;
+  color: #b42318;
+}
+
+@media (max-width: 640px) {
+  .admin-page {
+    padding: 20px 14px 40px;
+  }
+}

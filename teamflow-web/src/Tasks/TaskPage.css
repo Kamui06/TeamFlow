@@ -1,0 +1,475 @@
+.task-page {
+  --tp-text: #101828;
+  --tp-text-2: #344054;
+  --tp-muted: #667085;
+  --tp-faint: #98a2b3;
+  --tp-border: #e4e7ec;
+  --tp-border-2: #d0d5dd;
+  --tp-row-line: #f0f2f5;
+  --tp-soft: #f9fafb;
+  --tp-primary: #1976d2;
+  --tp-primary-hover: #1565c0;
+  --tp-primary-soft: #e8f1fb;
+  --tp-danger: #d92d20;
+  --tp-danger-text: #b42318;
+  --tp-danger-soft: #fef3f2;
+  --tp-success: #067647;
+  --tp-success-soft: #ecfdf3;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 28px clamp(14px, 2.4vw, 40px) 48px;
+  color: var(--tp-text);
+  font-size: 14px;
+}
+
+/* ---------- Header ---------- */
+
+.tp-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--tp-border);
+}
+
+.tp-eyebrow {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tp-muted);
+}
+
+.tp-header h1 {
+  margin: 4px 0 0;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+
+.tp-subtle {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: var(--tp-muted);
+}
+
+.tp-header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ---------- Buttons ---------- */
+
+.tp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 14px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.tp-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.25);
+}
+
+.tp-btn-primary {
+  background: var(--tp-primary);
+  color: #ffffff;
+}
+
+.tp-btn-primary:hover {
+  background: var(--tp-primary-hover);
+}
+
+.tp-btn-secondary {
+  background: #ffffff;
+  border-color: var(--tp-border-2);
+  color: var(--tp-text);
+}
+
+.tp-btn-secondary:hover {
+  background: var(--tp-soft);
+}
+
+/* ---------- Scope switch ---------- */
+
+.tp-scope {
+  display: inline-flex;
+  align-self: flex-start;
+  max-width: 100%;
+  gap: 2px;
+  padding: 4px;
+  background: #eef1f5;
+  border-radius: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tp-scope button {
+  flex: 0 0 auto;
+  height: 32px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--tp-text-2);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.tp-scope button.is-active {
+  background: #ffffff;
+  color: var(--tp-primary);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08);
+}
+
+/* ---------- Toolbar ---------- */
+
+.tp-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.tp-toolbar input,
+.tp-toolbar select {
+  width: 100%;
+  min-width: 0;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--tp-border-2);
+  border-radius: 8px;
+  background: #ffffff;
+  font: inherit;
+  font-size: 14px;
+  color: var(--tp-text);
+  box-sizing: border-box;
+}
+
+.tp-toolbar input:focus,
+.tp-toolbar select:focus {
+  outline: none;
+  border-color: var(--tp-primary);
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.15);
+}
+
+/* ---------- Table and rows ---------- */
+
+.tp-table {
+  background: #ffffff;
+  border: 1px solid var(--tp-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tp-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Header and rows share one grid, so columns always line up. */
+.tp-head,
+.tp-row {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 2.6fr)
+    minmax(0, 1.3fr)
+    minmax(0, 0.9fr)
+    minmax(0, 0.9fr)
+    minmax(0, 1.5fr)
+    minmax(0, 0.9fr);
+  column-gap: 16px;
+  align-items: center;
+  padding: 12px 18px;
+}
+
+/* Project view has no Project column */
+.tp-head.is-flat,
+.tp-row.is-flat {
+  grid-template-columns:
+    minmax(0, 2.6fr)
+    minmax(0, 1fr)
+    minmax(0, 1.5fr)
+    minmax(0, 0.9fr);
+}
+
+.tp-head {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: var(--tp-soft);
+  border-bottom: 1px solid var(--tp-border);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tp-muted);
+}
+
+/* Project view: status, priority, assignees, due. */
+.tp-head.is-flat > :nth-child(1),
+.tp-row.is-flat > :nth-child(1) {
+  grid-column: 1;
+}
+
+.tp-row {
+  border-top: 1px solid var(--tp-row-line);
+  content-visibility: auto;
+  contain-intrinsic-size: auto 60px;
+}
+
+.tp-row:first-child {
+  border-top: 0;
+}
+
+.tp-row:hover {
+  background: #fafbfc;
+}
+
+.tp-row > div {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tp-title a {
+  font-weight: 600;
+  color: var(--tp-text);
+  text-decoration: none;
+}
+
+.tp-title a:hover {
+  color: var(--tp-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.tp-title a:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.25);
+  border-radius: 4px;
+}
+
+.tp-project {
+  color: var(--tp-muted);
+  font-size: 13px;
+}
+
+/* ---------- Status, priority, due ---------- */
+
+.tp-status {
+  display: inline-flex;
+  max-width: 100%;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--tp-primary-soft);
+  color: var(--tp-primary-hover);
+  font-size: 12px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tp-status.is-final {
+  background: var(--tp-success-soft);
+  color: var(--tp-success);
+}
+
+.tp-priority {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--tp-text-2);
+}
+
+.tp-priority::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.tp-priority-low { color: var(--tp-muted); }
+.tp-priority-medium { color: #2e6fd6; }
+.tp-priority-high { color: #c4320a; }
+.tp-priority-urgent { color: var(--tp-danger); font-weight: 600; }
+
+.tp-due {
+  font-size: 13px;
+  color: var(--tp-text-2);
+}
+
+.tp-due.is-overdue {
+  color: var(--tp-danger);
+  font-weight: 600;
+}
+
+/* ---------- Assignees: names are plain text, no underline ---------- */
+
+.tp-assignees {
+  font-size: 13px;
+  color: var(--tp-text-2);
+}
+
+.tp-assignees .user-link,
+.tp-assignees .user-link:hover {
+  color: var(--tp-text-2);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.tp-assignees .user-link:hover {
+  color: var(--tp-primary);
+}
+
+.tp-muted {
+  color: var(--tp-faint);
+}
+
+/* ---------- States and alerts ---------- */
+
+.tp-state {
+  margin: 0;
+  padding: 48px 16px;
+  text-align: center;
+  color: var(--tp-muted);
+  background: #ffffff;
+  border: 1px dashed var(--tp-border-2);
+  border-radius: 12px;
+}
+
+.tp-state strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 15px;
+  color: var(--tp-text);
+}
+
+.tp-state p {
+  margin: 0;
+}
+
+.tp-alert {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border: 1px solid #fecdca;
+  border-radius: 10px;
+  background: var(--tp-danger-soft);
+  color: var(--tp-danger-text);
+  font-size: 13px;
+}
+
+/* ---------- Tablet: search spans the full row ---------- */
+
+@media (max-width: 1100px) {
+  .tp-toolbar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tp-toolbar .tp-search {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ---------- Phone: each task becomes a compact card ---------- */
+
+@media (max-width: 720px) {
+  .task-page {
+    padding: 18px 12px 40px;
+  }
+
+  .tp-header h1 {
+    font-size: 22px;
+  }
+
+  .tp-header-actions {
+    width: 100%;
+  }
+
+  .tp-header-actions .tp-btn {
+    flex: 1 1 auto;
+  }
+
+  .tp-scope {
+    width: 100%;
+  }
+
+  .tp-scope button {
+    flex: 1 1 auto;
+  }
+
+  .tp-toolbar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .tp-toolbar input,
+  .tp-toolbar select {
+    font-size: 16px;
+  }
+
+  .tp-head {
+    display: none;
+  }
+
+  .tp-row,
+  .tp-row.is-flat {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "title title"
+      "project project"
+      "status priority"
+      "assignees due";
+    gap: 8px 12px;
+    padding: 14px 16px;
+  }
+
+  .tp-row.is-flat {
+    grid-template-areas:
+      "title title"
+      "status priority"
+      "assignees due";
+  }
+
+  .tp-title { grid-area: title; white-space: normal; }
+  .tp-project { grid-area: project; }
+  .tp-status-cell { grid-area: status; }
+  .tp-priority-cell { grid-area: priority; justify-self: end; }
+  .tp-assignees { grid-area: assignees; white-space: normal; }
+  .tp-due { grid-area: due; justify-self: end; }
+
+  .tp-title a {
+    font-size: 15px;
+  }
+}

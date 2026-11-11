@@ -1,0 +1,256 @@
+.ac-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  min-width: 0;
+}
+
+/* ---------- Toolbar ---------- */
+
+.ac-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.ac-segment {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 4px;
+  background: #eef1f5;
+  border-radius: 10px;
+}
+
+.ac-segment button {
+  height: 32px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  font: inherit;
+  font-weight: 500;
+  color: #475467;
+  cursor: pointer;
+}
+
+.ac-segment button.is-active,
+.ac-segment button[aria-checked="true"] {
+  background: #ffffff;
+  color: #1976d2;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08);
+}
+
+.ac-search {
+  flex: 1 1 260px;
+  width: 100%;
+  max-width: 420px;
+  height: 40px;
+  padding: 0 14px;
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+  background: #ffffff;
+  font: inherit;
+  color: #101828;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.ac-search:focus {
+  outline: none;
+  border-color: #1976d2;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.15);
+}
+
+/* ---------- List ---------- */
+
+.ac-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ac-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 18px;
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+}
+
+.ac-item-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+}
+
+.ac-scope {
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: #f2f4f7;
+  color: #475467;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.ac-scope-team { background: #e8f1fb; color: #1565c0; }
+.ac-scope-project { background: #ecfdf3; color: #067647; }
+.ac-scope-task { background: #f1edff; color: #6938ef; }
+.ac-scope-global { background: #fef6ee; color: #b93815; }
+
+.ac-author {
+  font-size: 13px;
+  font-weight: 600;
+  color: #101828;
+}
+
+.ac-time {
+  font-size: 12px;
+  color: #98a2b3;
+}
+
+.ac-body {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #344054;
+}
+
+.ac-item-foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #f0f2f5;
+}
+
+.ac-where {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1565c0;
+  text-decoration: none;
+}
+
+.ac-where:hover {
+  text-decoration: underline;
+}
+
+.ac-where-plain {
+  color: #475467;
+  cursor: default;
+}
+
+.ac-where-plain:hover {
+  text-decoration: none;
+}
+
+.ac-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.ac-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #344054;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.ac-btn:hover {
+  background: #f9fafb;
+}
+
+.ac-btn-danger {
+  color: #b42318;
+  border-color: #fecdca;
+}
+
+.ac-btn-danger:hover {
+  background: #fef3f2;
+}
+
+/* ---------- States ---------- */
+
+.ac-state {
+  margin: 0;
+  padding: 40px 16px;
+  text-align: center;
+  color: #667085;
+  background: #ffffff;
+  border: 1px dashed #d0d5dd;
+  border-radius: 12px;
+}
+
+.ac-notice,
+.ac-alert {
+  padding: 12px 16px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.ac-notice {
+  background: #ecfdf3;
+  border-color: #abefc6;
+  color: #067647;
+}
+
+.ac-alert {
+  background: #fef3f2;
+  border-color: #fecdca;
+  color: #b42318;
+}
+
+/* ---------- Phones ---------- */
+
+@media (max-width: 600px) {
+  .ac-search {
+    max-width: none;
+  }
+
+  .ac-segment {
+    width: 100%;
+  }
+
+  .ac-segment button {
+    flex: 1 1 auto;
+  }
+
+  .ac-item-foot {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .ac-actions .ac-btn {
+    flex: 1 1 auto;
+  }
+}

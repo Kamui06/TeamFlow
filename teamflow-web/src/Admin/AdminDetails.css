@@ -1,0 +1,590 @@
+.ad-back {
+  align-self: flex-start;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1565c0;
+  text-decoration: none;
+}
+
+.ad-back:hover {
+  text-decoration: underline;
+}
+
+.ad-head-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.ad-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: #667085;
+}
+
+/* ---------- Layout ---------- */
+
+.ad-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.ad-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+}
+
+/* ---------- Cards ---------- */
+
+.ad-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+  padding: 20px 22px;
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+}
+
+.ad-card h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #101828;
+}
+
+.ad-danger {
+  border-color: #fecdca;
+}
+
+.ad-danger h2 {
+  color: #b42318;
+}
+
+/* ---------- Form fields ---------- */
+
+.ad-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 16px;
+}
+
+.ad-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: #344054;
+}
+
+.ad-field.is-wide {
+  grid-column: 1 / -1;
+}
+
+.ad-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ---------- Summary figures ---------- */
+
+.ad-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.ad-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 14px;
+  background: #f9fafb;
+  border: 1px solid #f0f2f5;
+  border-radius: 10px;
+}
+
+.ad-stat span {
+  font-size: 12px;
+  color: #667085;
+}
+
+.ad-stat strong {
+  font-size: 20px;
+  font-weight: 700;
+  color: #101828;
+}
+
+/* ---------- Lists (members, teams, projects, statuses) ---------- */
+
+.ad-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid #e4e7ec;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.ad-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  min-width: 0;
+  padding: 11px 14px;
+  border-top: 1px solid #f0f2f5;
+}
+
+.ad-list li:first-child {
+  border-top: 0;
+}
+
+.ad-list li:hover {
+  background: #fcfcfd;
+}
+
+.ad-list-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1 1 180px;
+  min-width: 0;
+}
+
+.ad-list-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ad-list-text a,
+.ad-list-text strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 600;
+  color: #101828;
+  text-decoration: none;
+}
+
+.ad-list-text a:hover {
+  color: #1565c0;
+  text-decoration: underline;
+}
+
+.ad-list-text span {
+  font-size: 12px;
+  color: #667085;
+}
+
+.ad-list-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ad-avatar {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #e8f1fb;
+  color: #1565c0;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ad-select {
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  background: #ffffff;
+  font: inherit;
+  font-size: 13px;
+  color: #101828;
+}
+
+/* ---------- Task table (project detail) ---------- */
+
+.ad-table {
+  width: 100%;
+  overflow-x: auto;
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 10px;
+}
+
+.ad-task-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 13px;
+}
+
+.ad-task-table th {
+  padding: 11px 14px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e4e7ec;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #667085;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.ad-task-table th:nth-child(1) { width: 26%; }
+.ad-task-table th:nth-child(2) { width: 18%; }
+.ad-task-table th:nth-child(3) { width: 10%; }
+.ad-task-table th:nth-child(4) { width: 22%; }
+.ad-task-table th:nth-child(5) { width: 12%; }
+
+.ad-task-table td {
+  padding: 11px 14px;
+  border-top: 1px solid #f0f2f5;
+  vertical-align: middle;
+  text-align: left;
+  color: #101828;
+  overflow-wrap: anywhere;
+}
+
+.ad-task-table tbody tr:first-child td {
+  border-top: 0;
+}
+
+.ad-task-table tbody tr:hover td {
+  background: #fafbfc;
+}
+
+.ad-task-table a {
+  font-weight: 600;
+  color: #101828;
+  text-decoration: none;
+}
+
+.ad-task-table a:hover {
+  color: #1565c0;
+  text-decoration: underline;
+}
+
+.ad-task-table th.ad-cell-actions,
+.ad-task-table td.ad-cell-actions {
+  width: 1%;
+  white-space: nowrap;
+  text-align: right;
+}
+
+/* ---------- Comments (admin moderation list) ---------- */
+
+.ad-comment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ad-comment {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 16px;
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 10px;
+}
+
+.ad-comment-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  font-size: 13px;
+  color: #667085;
+}
+
+.ad-comment-meta strong {
+  font-weight: 600;
+  color: #101828;
+}
+
+.ad-comment-meta a {
+  font-weight: 600;
+  color: #101828;
+  text-decoration: none;
+}
+
+.ad-comment-meta a:hover {
+  color: #1565c0;
+  text-decoration: underline;
+}
+
+.ad-comment-body {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.55;
+  color: #344054;
+}
+
+.ad-comment-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ad-comment-foot .ad-btn {
+  min-width: 0;
+}
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 900px) {
+  .ad-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ad-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Phone ---------- */
+
+@media (max-width: 600px) {
+  .ad-title {
+    font-size: 22px;
+  }
+
+  .ad-card {
+    padding: 16px;
+  }
+
+  .ad-fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ad-actions {
+    justify-content: stretch;
+  }
+
+  .ad-actions > .ad-btn {
+    flex: 1 1 auto;
+  }
+
+  .ad-list li {
+    align-items: flex-start;
+  }
+
+  .ad-list-controls {
+    width: 100%;
+  }
+
+  .ad-list-controls > * {
+    flex: 1 1 auto;
+  }
+
+  .ad-table {
+    overflow: visible;
+    background: transparent;
+    border: 0;
+    table-layout: fixed;
+    min-width: 760px;
+  }
+
+  .ad-task-table,
+  .ad-task-table tbody {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .ad-task-table thead {
+    display: none;
+  }
+
+  .ad-task-table tbody tr {
+    display: block;
+    margin-bottom: 10px;
+    padding: 4px;
+    background: #ffffff;
+    border: 1px solid #e4e7ec;
+    border-radius: 12px;
+  }
+
+  .ad-task-table tbody td {
+    display: grid;
+    grid-template-columns: minmax(90px, 35%) minmax(0, 1fr);
+    gap: 10px;
+    align-items: center;
+    padding: 9px 12px;
+    border-top: 1px solid #f0f2f5;
+  }
+
+  .ad-task-table tbody td:first-child {
+    border-top: 0;
+  }
+
+  .ad-task-table tbody td::before {
+    content: attr(data-label);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #667085;
+  }
+
+  .ad-task-table td.ad-cell-actions {
+    width: auto;
+    text-align: left;
+  }
+
+  .ad-task-table td.ad-cell-actions .ad-btn {
+    width: 100%;
+  }
+}
+
+/* ---------- Task table: fixed layout, aligned columns ---------- */
+
+.ad-task-table th,
+.ad-task-table td {
+  padding: 12px 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.ad-task-table td[data-label="Assignees"] {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.ad-task-title {
+  font-weight: 600;
+  color: #101828;
+  text-decoration: none;
+}
+
+.ad-task-title:hover {
+  color: #1565c0;
+  text-decoration: underline;
+}
+
+.ad-task-select {
+  width: 100%;
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  background: #ffffff;
+  font: inherit;
+  font-size: 13px;
+  color: #101828;
+}
+
+.ad-priority {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ad-priority-urgent { background: #fef3f2; color: #b42318; }
+.ad-priority-high { background: #fef6ee; color: #b93815; }
+.ad-priority-medium { background: #e8f1fb; color: #1565c0; }
+.ad-priority-low { background: #f2f4f7; color: #475467; }
+
+/* Phones: task rows become labelled cards */
+@media (max-width: 720px) {
+  .ad-task-table {
+    table-layout: auto;
+    min-width: 0;
+  }
+
+  .ad-task-table td {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 380px) {
+  .ad-stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------- Project detail: single column on phones and tablets ----------
+   Scoped to .ad-page with extra specificity so it wins over the two-column grid. */
+
+@media (max-width: 900px) {
+  .ad-page .ad-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .ad-page .ad-grid > *,
+  .ad-page .ad-stack,
+  .ad-page .ad-card {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .ad-page .ad-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* The task table fits the card and stops forcing a minimum width */
+  .ad-page .ad-table {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .ad-page .ad-task-table {
+    min-width: 0;
+    width: 100%;
+    table-layout: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .ad-page .ad-fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

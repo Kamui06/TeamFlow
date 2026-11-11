@@ -1,0 +1,402 @@
+.au-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  min-width: 0;
+  color: #101828;
+  font-size: 14px;
+}
+
+/* ---------- Toolbar ---------- */
+
+.au-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 180px 180px;
+  gap: 10px;
+  width: 100%;
+}
+
+.au-toolbar input,
+.au-toolbar select {
+  width: 100%;
+  min-width: 0;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+  background: #ffffff;
+  font: inherit;
+  font-size: 14px;
+  color: #101828;
+  box-sizing: border-box;
+}
+
+.au-toolbar input:focus,
+.au-toolbar select:focus {
+  outline: none;
+  border-color: #1976d2;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.15);
+}
+
+/* ---------- Card ---------- */
+
+.au-wrap .au-card,
+.au-card {
+  display: block;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #e4e7ec;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.au-list {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transition: opacity 0.15s ease;
+}
+
+.au-list.is-dim {
+  opacity: 0.55;
+}
+
+/*
+  Shared column template for the header AND every row.
+  The Actions track is a fixed width, so the buttons line up in every row.
+  Button tracks: Edit 64px | Middle action 124px | Last action 110px | 12px gaps x2 = 310px.
+*/
+.au-head,
+.au-row {
+  --au-actions-w: 310px;
+  display: grid;
+  grid-template-columns:
+    minmax(170px, 1.1fr)
+    minmax(200px, 1.5fr)
+    minmax(150px, 1fr)
+    var(--au-actions-w);
+  column-gap: 24px;
+  row-gap: 6px;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* ---------- Header ---------- */
+
+.au-head {
+  padding: 12px 20px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e4e7ec;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #667085;
+}
+
+/* Hide the Status and Joined headers. Their content sits inside the rows. */
+.au-head > span:nth-child(4),
+.au-head > span:nth-child(5) {
+  display: none;
+}
+
+.au-head > span:last-child {
+  justify-self: end;
+  text-align: right;
+}
+
+/* ---------- Rows ---------- */
+
+.au-row {
+  grid-template-areas:
+    "user email name actions"
+    "badges email joined actions";
+  padding: 14px 20px;
+  border-top: 1px solid #f0f2f5;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 72px;
+}
+
+.au-row:first-child {
+  border-top: 0;
+}
+
+.au-row:hover {
+  background: #fafbfc;
+}
+
+.au-user      { grid-area: user; }
+.au-email     { grid-area: email; }
+.au-name      { grid-area: name; }
+.au-joined    { grid-area: joined; }
+.au-user,
+.au-email,
+.au-name,
+.au-joined,
+.au-badges,
+.au-actions {
+  min-width: 0;
+}
+
+.au-email,
+.au-name,
+.au-joined {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #344054;
+  font-size: 14px;
+}
+
+.au-user .au-username {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+  font-size: 14px;
+  color: #101828;
+  text-decoration: none;
+}
+
+.au-user .au-username:hover {
+  color: #1565c0;
+  text-decoration: underline;
+}
+
+/* ---------- Badges ---------- */
+
+.au-badges {
+  grid-area: badges;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.au-badge {
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: #f2f4f7;
+  color: #475467;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.au-badge.is-admin {
+  background: #f1edff;
+  color: #6938ef;
+}
+
+.au-badge.is-ok {
+  background: #ecfdf3;
+  color: #067647;
+}
+
+.au-badge.is-off {
+  background: #fef3f2;
+  color: #b42318;
+}
+
+/* ---------- Actions: fixed slots so every row lines up ---------- */
+
+.au-actions {
+  grid-area: actions;
+  display: grid;
+  grid-template-columns: 64px 124px 110px;
+  gap: 6px;
+  justify-content: end;
+  align-items: center;
+}
+
+.au-actions > * {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.au-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #344054;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.au-btn:hover:not(:disabled) {
+  background: #f9fafb;
+}
+
+.au-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.au-btn-primary {
+  background: #1976d2;
+  border-color: #1976d2;
+  color: #ffffff;
+}
+
+.au-btn-primary:hover:not(:disabled) {
+  background: #1565c0;
+}
+
+.au-btn-danger {
+  color: #b42318;
+  border-color: #fecdca;
+}
+
+.au-btn-danger:hover:not(:disabled) {
+  background: #fef3f2;
+}
+
+.au-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.25);
+}
+
+/* ---------- States, notices, pager ---------- */
+
+.au-state,
+.au-empty {
+  padding: 40px 16px;
+  text-align: center;
+  color: #667085;
+}
+
+.au-notice,
+.au-alert {
+  padding: 10px 14px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.au-notice {
+  background: #ecfdf3;
+  border-color: #abefc6;
+  color: #067647;
+}
+
+.au-alert {
+  background: #fef3f2;
+  border-color: #fecdca;
+  color: #b42318;
+}
+
+.au-pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  font-size: 13px;
+  color: #475467;
+}
+
+.au-pager span {
+  margin-right: auto;
+}
+
+.au-pager button {
+  height: 34px;
+  padding: 0 14px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #101828;
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.au-pager button:hover:not(:disabled) {
+  background: #f9fafb;
+}
+
+.au-pager button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- Tablet and phone: stacked card layout (unchanged) ---------- */
+
+@media (max-width: 1180px) {
+  .au-head {
+    display: none;
+  }
+
+  .au-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "user badges"
+      "email email"
+      "name joined"
+      "actions actions";
+    gap: 8px 12px;
+    padding: 14px 16px;
+  }
+
+  .au-badges {
+    justify-content: flex-end;
+    margin-top: 0;
+  }
+
+  .au-actions {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    justify-content: stretch;
+  }
+
+  .au-email::before,
+  .au-name::before,
+  .au-joined::before {
+    content: attr(data-label);
+    margin-right: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #667085;
+  }
+}
+
+@media (max-width: 720px) {
+  .au-toolbar {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .au-toolbar input {
+    grid-column: 1 / -1;
+  }
+
+  .au-pager {
+    justify-content: space-between;
+  }
+
+  .au-pager span {
+    width: 100%;
+    margin-right: 0;
+  }
+}

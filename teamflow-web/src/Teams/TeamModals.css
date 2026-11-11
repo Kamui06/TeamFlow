@@ -1,0 +1,174 @@
+/* Members dialog list and notices. Dialog shell and form fields come from components/Dialog.css. */
+
+.tm-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid #e4e7ec;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tm-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px 16px;
+  border-top: 1px solid #f0f2f5;
+  background: #ffffff;
+}
+
+.tm-row:first-child {
+  border-top: 0;
+}
+
+.tm-person {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1 1 180px;
+  min-width: 0;
+}
+
+.tm-avatar {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #e8f1fb;
+  color: #1565c0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.tm-person-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.tm-person-text strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 600;
+  color: #101828;
+}
+
+.tm-person-text span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  color: #667085;
+}
+
+.tm-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tm-select {
+  height: 36px;
+  min-width: 120px;
+  padding: 0 10px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  background: #ffffff;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: #101828;
+  cursor: pointer;
+}
+
+.tm-select:focus {
+  outline: none;
+  border-color: #1976d2;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.15);
+}
+
+.tm-select:disabled {
+  background: #f9fafb;
+  color: #667085;
+  cursor: not-allowed;
+}
+
+.tm-remove {
+  height: 36px;
+  padding: 0 14px;
+  border: 1px solid #fecdca;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #b42318;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tm-remove:hover:not(:disabled) {
+  background: #fef3f2;
+}
+
+.tm-remove:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.tm-owner {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #fef6ee;
+  color: #b93815;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.tm-empty {
+  padding: 28px 16px;
+  text-align: center;
+  font-size: 13px;
+  color: #667085;
+}
+
+.tm-notice {
+  display: block;
+  padding: 10px 14px;
+  border: 1px solid #abefc6;
+  border-radius: 10px;
+  background: #ecfdf3;
+  color: #067647;
+  font-size: 13px;
+}
+
+/* Phones: controls take the full width under the name */
+
+@media (max-width: 600px) {
+  .tm-row {
+    align-items: stretch;
+  }
+
+  .tm-controls {
+    width: 100%;
+  }
+
+  .tm-select {
+    flex: 1 1 auto;
+  }
+
+  .tm-remove {
+    flex: 0 0 auto;
+  }
+}

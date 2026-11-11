@@ -1,0 +1,682 @@
+/* ============================================================
+   Tasks design system
+   Tokens are scoped to .task-page so they don't leak into the
+   rest of the app.
+   ============================================================ */
+
+.task-page {
+  --t-bg: #f7f8fa;
+  --t-surface: #ffffff;
+  --t-border: #e4e7ec;
+  --t-border-strong: #d0d5dd;
+  --t-text: #101828;
+  --t-text-2: #475467;
+  --t-text-3: #667085;
+  --t-primary: #1976d2;
+  --t-primary-hover: #1565c0;
+  --t-primary-soft: #e8f1fb;
+  --t-danger: #d92d20;
+  --t-danger-hover: #b42318;
+  --t-danger-soft: #fef3f2;
+  --t-success: #067647;
+  --t-success-soft: #ecfdf3;
+  --t-neutral-soft: #f2f4f7;
+  --t-radius: 10px;
+  --t-radius-sm: 6px;
+  --t-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --t-shadow-lg: 0 12px 32px rgba(16, 24, 40, 0.18);
+  --t-focus: 0 0 0 3px rgba(25, 118, 210, 0.25);
+
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+  color: var(--t-text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ---------- Page header ---------- */
+
+.task-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--t-border);
+}
+
+.task-page-header h1 {
+  margin: 4px 0 2px;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.task-eyebrow {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--t-text-3);
+}
+
+.task-subtle {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: var(--t-text-3);
+}
+
+.task-header-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.task-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--t-text-2);
+  text-decoration: none;
+}
+
+.task-back:hover {
+  color: var(--t-primary);
+}
+
+/* ---------- Buttons ---------- */
+
+.task-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 14px;
+  border: 1px solid transparent;
+  border-radius: var(--t-radius-sm);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.task-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--t-focus);
+}
+
+.task-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.task-btn-primary {
+  background: var(--t-primary);
+  color: #fff;
+  box-shadow: var(--t-shadow);
+}
+
+.task-btn-primary:hover:not(:disabled) {
+  background: var(--t-primary-hover);
+}
+
+.task-btn-secondary {
+  background: var(--t-surface);
+  border-color: var(--t-border-strong);
+  color: var(--t-text);
+}
+
+.task-btn-secondary:hover:not(:disabled) {
+  background: var(--t-bg);
+}
+
+.task-btn-danger {
+  background: var(--t-danger);
+  color: #fff;
+}
+
+.task-btn-danger:hover:not(:disabled) {
+  background: var(--t-danger-hover);
+}
+
+/* ---------- Scope toggle (All tasks / Assigned to me) ---------- */
+
+.task-scope {
+  display: inline-flex;
+  padding: 3px;
+  margin-bottom: 16px;
+  background: var(--t-neutral-soft);
+  border-radius: var(--t-radius-sm);
+}
+
+.task-scope-btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--t-text-2);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.task-scope-btn:hover {
+  color: var(--t-text);
+}
+
+.task-scope-btn.active {
+  background: var(--t-surface);
+  color: var(--t-text);
+  box-shadow: var(--t-shadow);
+}
+
+.task-scope-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--t-focus);
+}
+
+/* ---------- Inputs (shared) ---------- */
+
+.task-toolbar input,
+.task-toolbar select,
+.task-card input,
+.task-card select,
+.task-card textarea,
+.task-modal input,
+.task-modal select,
+.task-modal textarea {
+  width: 100%;
+  min-height: 36px;
+  padding: 8px 12px;
+  border: 1px solid var(--t-border-strong);
+  border-radius: var(--t-radius-sm);
+  background: var(--t-surface);
+  color: var(--t-text);
+  font: inherit;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.task-toolbar input:focus,
+.task-toolbar select:focus,
+.task-card input:focus,
+.task-card select:focus,
+.task-card textarea:focus,
+.task-modal input:focus,
+.task-modal select:focus,
+.task-modal textarea:focus {
+  outline: none;
+  border-color: var(--t-primary);
+  box-shadow: var(--t-focus);
+}
+
+.task-card textarea,
+.task-modal textarea {
+  resize: vertical;
+  min-height: 96px;
+}
+
+.task-card select:disabled,
+.task-card input:disabled,
+.task-card textarea:disabled {
+  background: var(--t-bg);
+  color: var(--t-text-3);
+  cursor: not-allowed;
+}
+
+/* Labels: stacked, with a small muted caption */
+.task-modal label,
+.task-card label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--t-text-2);
+}
+
+/* ---------- Toolbar ---------- */
+
+.task-toolbar {
+  display: grid;
+  grid-template-columns: minmax(220px, 2fr) repeat(2, minmax(140px, 1fr));
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+/* ---------- Table ---------- */
+
+.task-table {
+  background: var(--t-surface);
+  border: 1px solid var(--t-border);
+  border-radius: var(--t-radius);
+  box-shadow: var(--t-shadow);
+  overflow: hidden;
+}
+
+.task-row {
+  display: grid;
+  grid-template-columns: minmax(0, 2.4fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  padding: 12px 20px;
+  border-top: 1px solid var(--t-border);
+  transition: background-color 0.12s ease;
+}
+
+.task-row.with-project {
+  grid-template-columns: minmax(0, 2.4fr) minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1fr);
+}
+
+.task-row:not(.task-row-head):hover {
+  background: #fafbfc;
+}
+
+.task-row-head {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: none;
+  background: var(--t-bg);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--t-text-3);
+}
+
+.task-row > [role="cell"] {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.task-title-cell a {
+  color: var(--t-text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.task-title-cell a:hover {
+  color: var(--t-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.task-title-cell a:focus-visible {
+  outline: none;
+  box-shadow: var(--t-focus);
+  border-radius: 4px;
+}
+
+/* ---------- Status chip ---------- */
+
+.task-status {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--t-primary-soft);
+  color: var(--t-primary-hover);
+  font-size: 12px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.task-status.final {
+  background: var(--t-success-soft);
+  color: var(--t-success);
+}
+
+/* ---------- Priority (colored dot + label) ---------- */
+
+.task-priority {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--t-text-2);
+}
+
+.task-priority::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.task-priority-low { color: #667085; }
+.task-priority-medium { color: #2e6fd6; }
+.task-priority-high { color: #c4320a; }
+.task-priority-urgent { color: var(--t-danger); font-weight: 600; }
+
+/* ---------- Due dates ---------- */
+
+.task-overdue {
+  color: var(--t-danger);
+  font-weight: 600;
+}
+
+/* ---------- States, alerts, notices ---------- */
+
+.task-state {
+  padding: 56px 20px;
+  text-align: center;
+  color: var(--t-text-3);
+}
+
+.task-state strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 15px;
+  color: var(--t-text);
+}
+
+.task-alert {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  border: 1px solid #fecdca;
+  border-radius: var(--t-radius-sm);
+  background: var(--t-danger-soft);
+  color: var(--t-danger-hover);
+}
+
+.task-alert button {
+  padding: 4px 10px;
+  border: 1px solid #fecdca;
+  border-radius: 4px;
+  background: var(--t-surface);
+  color: var(--t-danger-hover);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.task-notice {
+  display: block;
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  border: 1px solid #abefc6;
+  border-radius: var(--t-radius-sm);
+  background: var(--t-success-soft);
+  color: var(--t-success);
+}
+
+.task-form-error {
+  margin: 0;
+  font-size: 13px;
+  color: var(--t-danger);
+}
+
+/* ---------- Modal ---------- */
+
+.task-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(16, 24, 40, 0.5);
+  animation: task-fade-in 0.15s ease-out;
+}
+
+.task-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: min(560px, 100%);
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  padding: 24px;
+  border-radius: 12px;
+  background: var(--t-surface);
+  box-shadow: var(--t-shadow-lg);
+  animation: task-rise-in 0.2s ease-out;
+}
+
+.task-modal h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.task-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+  padding-top: 16px;
+  border-top: 1px solid var(--t-border);
+}
+
+@keyframes task-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes task-rise-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Form layout ---------- */
+
+.task-form-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* ---------- Detail page layout ---------- */
+
+.task-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.task-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  background: var(--t-surface);
+  border: 1px solid var(--t-border);
+  border-radius: var(--t-radius);
+  box-shadow: var(--t-shadow);
+}
+
+.task-card > aside,
+.task-detail-grid > aside {
+  position: sticky;
+  top: 16px;
+}
+
+.task-card h2,
+.task-detail-grid > aside h2 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--t-text-3);
+}
+
+.task-card h2 + *,
+.task-detail-grid > aside h2 + * {
+  margin-top: -4px;
+}
+
+/* Definition list for summary values */
+.task-meta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px 20px;
+  margin: 0;
+  font-size: 14px;
+}
+
+.task-meta dt {
+  color: var(--t-text-3);
+}
+
+.task-meta dd {
+  margin: 0;
+  color: var(--t-text);
+  font-weight: 500;
+}
+
+/* ---------- Focus visibility for links and interactive rows ---------- */
+
+a:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1024px) {
+  .task-toolbar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .task-toolbar input {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 800px) {
+  .task-page {
+    padding: 20px 16px 40px;
+  }
+
+  .task-detail-grid,
+  .task-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .task-card > aside,
+  .task-detail-grid > aside {
+    position: static;
+  }
+
+  /* Table becomes a stacked list of cards */
+  .task-row-head {
+    display: none;
+  }
+
+  .task-row,
+  .task-row.with-project {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 14px 16px;
+  }
+
+  .task-row > [role="cell"] {
+    white-space: normal;
+  }
+
+  .task-title-cell a {
+    font-size: 15px;
+  }
+}
+
+.task-assignee-fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 12px;
+  border: 1px solid #e4e7ec;
+  border-radius: 8px;
+}
+
+.task-assignee-fieldset legend {
+  padding: 0 4px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #475467;
+}
+
+.task-assignee-fieldset:disabled {
+  opacity: 0.6;
+}
+
+.task-assignee-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 180px;
+  overflow-y: auto;
+  padding: 8px;
+  border: 1px solid #d0d5dd;
+  border-radius: 6px;
+}
+
+.task-assignee-list .task-check-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #101828;
+}
+
+.task-assignee-list .task-check-row input[type="checkbox"] {
+  width: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.task-hint {
+  margin: 0;
+  font-size: 12px;
+  color: #667085;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .task-modal-backdrop,
+  .task-modal {
+    animation: none;
+  }
+
+  .task-btn,
+  .task-scope-btn,
+  .task-row,
+  .task-toolbar input,
+  .task-toolbar select,
+  .task-card input,
+  .task-card select,
+  .task-card textarea {
+    transition: none;
+  }
+}

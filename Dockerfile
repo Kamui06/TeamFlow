@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17-jdk AS build
+FROM eclipse-temurin:25-jre
 WORKDIR /app
 COPY gradlew settings.gradle build.gradle ./
 COPY gradle ./gradle

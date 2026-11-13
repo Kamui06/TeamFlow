@@ -1,0 +1,10 @@
+.git
+.gradle
+build
+out
+node_modules
+logs
+teamflow-web
+.env
+*.env
+boot-error.txt

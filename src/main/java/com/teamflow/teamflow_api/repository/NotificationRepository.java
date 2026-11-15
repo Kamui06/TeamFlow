@@ -32,11 +32,11 @@ public interface NotificationRepository extends JpaRepository<Notification, Inte
     @Query("DELETE FROM Notification n WHERE n.user.id = :userId AND n.readAt IS NOT NULL")
     int deleteReadForUser(@Param("userId") Integer userId);
 
-    /** Notifications linked to a project. Used to report what stays after a project is deleted. */
+    // Notifications linked to a project. Used to report what stays after a project is deleted. 
     @Query("SELECT COUNT(n) FROM Notification n WHERE n.project.id = :projectId")
     long countByProjectId(@Param("projectId") Integer projectId);
 
-    /** Notifications linked to a team. Used to report what stays after a team is deleted. */
+    // Notifications linked to a team. Used to report what stays after a team is deleted. 
     @Query("SELECT COUNT(n) FROM Notification n WHERE n.team.id = :teamId")
     long countByTeamId(@Param("teamId") Integer teamId);
 }

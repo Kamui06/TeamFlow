@@ -131,7 +131,7 @@ export default function AuthLayout({ eyebrow, title, subtitle, footer, children 
           </h2>
           <p className="au-lead">
             The backend was deployed on Render free plan, <br />
-            So initial cold start can take about a minute and/or throw an error, additionally, API responses can also take initial delay, keep in mind.
+            So initial cold start can take about a minute and/or throw an error, additionally, API responses can also take delays, keep in mind.
           </p>
         </div>
 

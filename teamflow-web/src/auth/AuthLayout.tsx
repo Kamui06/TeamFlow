@@ -129,7 +129,11 @@ export default function AuthLayout({ eyebrow, title, subtitle, footer, children 
             Important Note:
             <br />
           </h2>
-          <p className="au-lead">One workspace for your teams, projects and tasks.</p>
+          <p className="au-lead">
+            The backend was deployed on Render free plan, <br />
+            So initial cold start can take about a minute and/or throw an error, <br />
+            additionally, API responses can also take initial delay, keep in mind.
+          </p>
         </div>
 
         <ul className="au-features">

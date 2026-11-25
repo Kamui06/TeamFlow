@@ -126,9 +126,8 @@ export default function AuthLayout({ eyebrow, title, subtitle, footer, children 
 
         <div>
           <h2>
-            Plan together.
+            Important Note:
             <br />
-            Deliver on time.
           </h2>
           <p className="au-lead">One workspace for your teams, projects and tasks.</p>
         </div>
